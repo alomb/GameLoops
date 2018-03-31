@@ -25,12 +25,12 @@ public class Game {
     }
 
     /**
-     * @param elapsed the time passed from the start of the previous game cycle
-     * to the beginning of the current
+     * @param delta the elapsed time passed from the start of the previous game cycle to the beginning of the current,+
+     * divided by the optimal time.
      */
-    public void update(final float elapsed) {
-        this.x += elapsed * this.speed;
-        this.y += elapsed * this.speed;
+    public void update(final double delta) {
+        this.x += delta * this.speed;
+        this.y += delta * this.speed;
     }
 
     /**

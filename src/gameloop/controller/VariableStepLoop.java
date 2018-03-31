@@ -10,7 +10,8 @@ import gameloop.view.Scene;
  */
 public class VariableStepLoop implements GameLoop {
 
-    private static final long PERIOD = 20;
+    private static final long FPS = 60;
+    private static final long PERIOD = 1000 / VariableStepLoop.FPS;
 
     private boolean running;
     private boolean stopped;
@@ -42,8 +43,9 @@ public class VariableStepLoop implements GameLoop {
         while (this.running) {
             final long current = System.currentTimeMillis();
             final int elapsed = (int) (current - lastTime);
+            final double delta = elapsed / ((double) VariableStepLoop.PERIOD);
             this.processInput();
-            this.gameUpdate(elapsed);
+            this.gameUpdate(delta);
             this.gameRender();
             this.waitForNextFrame(current);
             lastTime = current;
@@ -79,12 +81,12 @@ public class VariableStepLoop implements GameLoop {
     }
 
     /**
-     * @param elapsed the time passed from the start of the previous game cycle 
-     * to the beginning of the current
+     * @param delta the elapsed time passed from the start of the previous game cycle to the beginning of the current,+
+     * divided by the optimal time.
      */
-    private void gameUpdate(final float elapsed) {
+    private void gameUpdate(final double delta) {
         if (!this.stopped) {
-            this.game.update(elapsed);
+            this.game.update(delta);
         }
     }
 
