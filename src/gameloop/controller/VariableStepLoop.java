@@ -1,12 +1,12 @@
 package gameloop.controller;
 
 import java.awt.Toolkit;
-
 import gameloop.model.Game;
 import gameloop.view.Scene;
 
 /**
- *
+ * A game loop that updates the game dependently on the time elapsed from a game cycle to another, 
+ * using interpolation to normalize the time.
  */
 public class VariableStepLoop implements GameLoop {
 
@@ -29,8 +29,8 @@ public class VariableStepLoop implements GameLoop {
     @Override
     public final void setup() {
         this.game = new Game();
-        this.scene = new Scene(game, (int) (2 * (Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 3)),
-                (int) (2 * (Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 3)));
+        this.scene = new Scene(game, (int) ((Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 2)),
+                (int) ((Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2)));
 
         this.running = true;
         this.stopped = false;
@@ -44,6 +44,7 @@ public class VariableStepLoop implements GameLoop {
             final long current = System.currentTimeMillis();
             final int elapsed = (int) (current - lastTime);
             final double delta = elapsed / ((double) VariableStepLoop.PERIOD);
+            System.out.println(delta);
             this.processInput();
             this.gameUpdate(delta);
             this.gameRender();

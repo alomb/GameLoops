@@ -1,7 +1,7 @@
 package gameloop.controller;
 
 /**
- *
+ * An interface for a general game loop.
  */
 public interface GameLoop {
 

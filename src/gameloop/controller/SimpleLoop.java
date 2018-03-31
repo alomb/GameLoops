@@ -6,7 +6,7 @@ import gameloop.model.Game;
 import gameloop.view.Scene;
 
 /**
- *
+ * A very simple game loop.
  */
 public class SimpleLoop implements GameLoop {
 
@@ -28,8 +28,8 @@ public class SimpleLoop implements GameLoop {
     @Override
     public final void setup() {
         this.game = new Game();
-        this.scene = new Scene(game, (int) (2 * (Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 3)),
-                (int) (2 * (Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 3)));
+        this.scene = new Scene(game, (int) ((Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 2)),
+                (int) ((Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2)));
 
         this.running = true;
         this.stopped = false;
