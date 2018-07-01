@@ -7,21 +7,14 @@ public class Game {
 
     private int x;
     private int y;
-    private final float speed = 5f;
-
-    /**
-     * 
-     */
-    public Game() {
-
-    }
+    private static final float SPEED = 5f;
 
     /**
      * The update used by @SimpleLoop.
      */
     public void update() {
-        this.x += this.speed;
-        this.y += this.speed;
+        this.x += Game.SPEED;
+        this.y += Game.SPEED;
     }
 
     /**
@@ -29,8 +22,8 @@ public class Game {
      * divided by the optimal time.
      */
     public void update(final double delta) {
-        this.x += this.speed * delta;
-        this.y += this.speed * delta;
+        this.x += Game.SPEED * delta;
+        this.y += Game.SPEED * delta;
     }
 
     /**

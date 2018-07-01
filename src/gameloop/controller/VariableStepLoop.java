@@ -19,13 +19,6 @@ public class VariableStepLoop implements GameLoop {
     private Scene scene;
     private Game game;
 
-    /**
-     * 
-     */
-    public VariableStepLoop() {
-
-    }
-
     @Override
     public final void setup() {
         this.game = new Game();

@@ -18,12 +18,6 @@ public class SimpleLoop implements GameLoop {
     private Game game;
     private Scene scene;
 
-    /**
-     * 
-     */
-    public SimpleLoop() {
-
-    }
 
     @Override
     public final void setup() {

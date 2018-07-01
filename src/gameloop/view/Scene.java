@@ -59,7 +59,7 @@ public class Scene {
     }
 
     /**
-     *
+     * The panel containing the scene and used to perform the rendering.
      */
     public class ScenePanel extends JPanel {
 
@@ -96,7 +96,7 @@ public class Scene {
         }
 
         @Override
-        protected void paintComponent(final Graphics g) {
+        protected final void paintComponent(final Graphics g) {
             super.paintComponent(g);
 
             g.setColor(new Color(255, 255, 255));
